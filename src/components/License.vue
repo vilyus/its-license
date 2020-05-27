@@ -612,6 +612,9 @@ export default {
   methods: {
     loadQ() {
       const q = new URLSearchParams(window.location.search)
+      if (q.get('form') === 'hide') {
+        this.hideForm = true
+      }
       if (q.get('ru')) {
         this.name.ru = q.get('ru')
       }
@@ -621,12 +624,12 @@ export default {
       if (q.get('by')) {
         this.name.by = q.get('by')
       }
-      if (q.get('form') === 'hide') {
-        this.hideForm = true
-      }
     },
     storeQ() {
-      window.history.replaceState({}, document.title, this.href)
+      const { href, hideForm } = this
+      if (!hideForm) {
+        window.history.replaceState({}, document.title, href)
+      }
     },
   },
 }
