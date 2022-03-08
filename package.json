@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.4",
-    "urijs": "^1.19.2",
+    "urijs": "^1.19.10",
     "vue": "^2.6.11"
   },
   "devDependencies": {
